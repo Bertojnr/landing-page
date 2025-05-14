@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333; /* Base text color */
+}
+
+.hero {
+  background-color: #0f172a; /* Dark background */
+  color: #fff; /* White text */
+  padding: 4em 1em; /* Large vertical spacing */
+}
+
+.hero-content {
+  /* The maximum width of the element should not exceed 600 pixels, even if there’s more space available */
+  max-width: 600px;
+  margin: 0 auto; /* Center content horizontally */
+  /* border: 5px solid white; */
+}
+
+.btn {
+  display: inline-block; /* Allows width and height, behaves like inline element */
+  padding: 0.75em 1.5em; /* Top/bottom: 0.75em, left/right: 1.5em for spacing inside the button */
+  margin-top: 1em; /* Adds space above the button */
+  background: #1e40af; /* Blue button background */
+  color: #fff; /* White text color */
+  text-decoration: none; /* Removes underline from links */
+  border-radius: 5px; /* Rounded corners */
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 0.5em; /* Space below headings */
+}
+
+ul {
+  list-style-type: none; /* Remove bullet points from lists */
+}
+
+.about {
+  padding: 2em 1em;
+  /* border: 5px solid; */
+  text-align: center; /* Center-align section content */
+  font-size: 1.5rem;
+}
+
+.importance {
+  padding: 2em 1em;
+  border: 5px solid;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  background-color: #d21f3c;
+}
+
+/* Threats Section - Card Layout */
+.container {
+  display: flex;
+  gap: 1em; /* Space between cards */
+  justify-content: center;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.card {
+  background-color: #1c477f;
+  color: white;
+  padding: 1em;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.common-threats {
+  text-align: center;
+}
+
+.threats {
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+
+.carousel {
+  overflow: hidden; /* Hide any part of the items that go outside the container */
+  height: 80px; /* Sets the visible height (e.g., for one item in a vertical carousel) */
+  max-width: 500px; /* Limits the carousel's width to 500px */
+  margin: 0 auto; /* Centers the carousel horizontally within its container */
+  position: relative; /* Allows positioning of inner elements (like controls or items) absolutely inside */
+}
+
+.carousel-track {
+  display: flex;
+  flex-direction: column;
+  animation: slide 9s infinite; /* Runs the slide animation every 9s */
+}
+
+.cyber {
+  text-align: center;
+}
+
+.carousel-item {
+  flex: 0 0 80px; /* Do not grow or shrink; set a fixed height of 80px */
+  display: flex; /* Use Flexbox for easy alignment of content */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  background: #fef3c7; /* Light yellow background for visual appeal */
+  font-size: 1.1em; /* Slightly larger text for readability */
+  padding: 1em; /* Space inside the item */
+  border-radius: 5px; /* Rounded corners for a smooth look */
+}
+
+/* Keyframes for Carousel Sliding Animation */
+@keyframes slide {
+  0%,
+  33.33% {
+    transform: translateY(0); /* Show first item */
+  }
+  33.34%,
+  66.66% {
+    transform: translateY(-80px); /* Show second item. moves up 80px */
+  }
+  66.67%,
+  100% {
+    transform: translateY(-160px); /* Show third item. moves up 160px */
+  }
+}
+
+/* Call-to-Action Section */
+.cta {
+  background: #f3f4f6; /* Light gray background */
+  text-align: center;
+  padding: 2em 1em;
+  margin-top: 60px;
+}
+
+/* Footer */
+footer {
+  background: #0f172a; /* Dark footer background */
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+}
+
+/* Responsive Layouts for Small Screens */
+@media (max-width: 600px) {
+  .grid {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+  }
+
+  .carousel {
+    height: auto; /* Allow natural height if needed */
+  }
+}
+
+/* Notes
+the percentages in the @keyframes animation are not random. They're carefully chosen to control when and how long each carousel item stays visible during the full animation cycle.
+We want three carousel items to appear one at a time, each for 3 seconds, in a 9-second loop (3s × 3 items)
+100% / 3 = 33.33%
+0% - 33.33% shows first item for 3s
+33.34% - 66.66% shows second item for 3s
+66.67% - 100% shows third item for 3s
+Each carousel-item is 80px tall
+translateY refers to movement along the Y-axis — which means up and down
+We used translateY because the carousel items were stacked vertically
+
+In CSS when you set width or height, it only affects applies to the content. any other property like padding or border is added to the width to give the total width. When you use border box, the browser shrinks the content so that the width and height you set now accomodates the content, padding and border. Using border-box makes layouts more predictable. You don’t need to do extra math to avoid overflow or layout breaks. that is why you often see it at the top of css files
+
+overflow: hidden; is a CSS property that controls what happens when content overflows the boundaries of its container — and in this case, it hides anything that doesn’t fit
+The overflow property tells the browser how to handle content that goes beyond the element’s set width or height
+
+The content is still there in the HTML — you just can’t see it
+
+position: relative; is a CSS property that lets you move an element slightly from its normal place — and also serves as a reference point for absolutely positioned child elements
+
+a rule in CSS. It is used to define an animation by specifying keyframes (specific points in the animation sequence) and the styles you want to apply at those points
+
+The name slide is chosen for this animation, but it can be any name you like. You’ll later link it to an element using animation: slide 9s infinite;
+
+em is indeed a unit in CSS. It is a relative unit of measurement used to define the size of elements in relation to their parent element's font size
+Using em allows elements to scale relative to their parent, making it easier to design for different screen sizes and maintain consistent proportions
+*/
