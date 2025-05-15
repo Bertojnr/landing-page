@@ -25,6 +25,14 @@ body {
   /* border: 5px solid white; */
 }
 
+.stay-safe {
+  font-size: 50px;
+}
+
+.learn {
+  font-size: 30px;
+}
+
 .btn {
   display: inline-block; /* Allows width and height, behaves like inline element */
   padding: 0.75em 1.5em; /* Top/bottom: 0.75em, left/right: 1.5em for spacing inside the button */
@@ -33,6 +41,7 @@ body {
   color: #fff; /* White text color */
   text-decoration: none; /* Removes underline from links */
   border-radius: 5px; /* Rounded corners */
+  margin-left: 140px;
 }
 
 h1,
